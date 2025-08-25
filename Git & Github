@@ -1,1 +1,9 @@
+git init
+git restore
+git add
+git log
+git status
+git stash
+git stash pop
+git stash clear
 
