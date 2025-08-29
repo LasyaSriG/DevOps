@@ -1,9 +1,61 @@
-git init
-git restore
-git add
-git log
-git status
-git stash
-git stash pop
-git stash clear
+# 📌 Git: Workspace, Staging Area, and Repository
 
+## 1. **Workspace (Working Directory)**
+
+* This is where you **create or edit files** on your computer.
+* Files in the workspace are not yet tracked by Git until you add them.
+
+👉 Example:
+
+echo "Hello Git" > file.txt
+
+At this point, `file.txt` is only in the **workspace**.
+
+---
+
+## 2. **Staging Area (Index / Cache)**
+
+* Intermediate area where Git keeps track of files that are marked to go into the next commit.
+* You move files here using `git add`.
+
+👉 Example:
+
+git add file.txt
+
+Now `file.txt` is **staged** (ready to commit).
+
+---
+
+## 3. **Repository**
+
+* This is the **database where Git permanently stores commits**.
+* Once you `git commit`, the staged files are written into the repository.
+
+👉 Example:
+
+git commit -m "Added file.txt"
+
+Now the changes are part of the **local repository history**.
+
+---
+
+## 🔄 Flow Summary
+
+flowchart LR
+    A[Workspace<br>(Working Directory)] -->|git add| B[Staging Area<br>(Index)]
+    B -->|git commit| C[Local Repository]
+    C -->|git push| D[Remote Repository<br>(GitHub/GitLab/Bitbucket)]
+
+---
+
+## 🔑 Commands Recap
+
+| Step            | Command Example                 | Purpose                                            |
+| --------------- | ------------------------------- | -------------------------------------------------- |
+| Check status    | `git status`                    | Shows where files are (workspace / staging / repo) |
+| Stage changes   | `git add <file>` or `git add .` | Move changes → staging area                        |
+| Unstage changes | `git restore --staged <file>`   | Remove from staging → back to workspace            |
+| Commit changes  | `git commit -m "message"`       | Save changes into repository                       |
+| Push to remote  | `git push origin main`          | Send commits → GitHub remote repo                  |
+
+---
